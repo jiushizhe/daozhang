@@ -1,0 +1,38 @@
+var rule = {
+  title: '达达兔影院',
+  host: 'http://www.dadatu26.com',
+//url: '/t/fyclass-fypage.html',
+  searchUrl: '/search.php?page=fypage&searchword=**&searchtype=fyclass',
+  searchable: 2,
+  quickSearch: 0,
+  filterable: 1,
+  headers: {
+    'User-Agent': 'MOBILE_UA',
+  },
+url: '/search.php?page=fypage&searchtype=5&tid=fyclassfyfilter',
+//url: '/t/fyfilter.html',
+filter_url:'{&jq={{fl.cateid}}&area={{fl.area}}}',
+//filter_url:'/search.php?page=fypage&searchtype=5&tid=fyclass&jq={{fl.class}}&area={{fl.area}}',
+filter:{
+    "1":[{"key":"cateid","name":"类型","value":[{"n":"全部","v":""},{"n":"动作","v":"动作"},{"n":"喜剧","v":"喜剧"},{"n":"爱情","v":"爱情"},{"n":"科幻","v":"科幻"},{"n":"恐怖","v":"恐怖"},{"n":"战争","v":"战争"},{"n":"剧情","v":"剧情"}]},{"key":"area","name":"地区","value":[{"n":"全部","v":""},{"n":"大陆","v":"大陆"},{"n":"美国","v":"美国"},{"n":"香港","v":"香港"}]}],
+    "2":[{"key":"cateid","name":"类型","value":[{"n":"全部","v":""},{"n":"动作","v":"动作"},{"n":"喜剧","v":"喜剧"},{"n":"爱情","v":"爱情"},{"n":"科幻","v":"科幻"},{"n":"恐怖","v":"恐怖"},{"n":"战争","v":"战争"},{"n":"剧情","v":"剧情"}]},{"key":"area","name":"地区","value":[{"n":"全部","v":""},{"n":"大陆","v":"大陆"},{"n":"美国","v":"美国"},{"n":"香港","v":"香港"}]}],
+    "3":[{"key":"cateid","name":"类型","value":[{"n":"全部","v":""},{"n":"动作","v":"动作"},{"n":"喜剧","v":"喜剧"},{"n":"爱情","v":"爱情"},{"n":"科幻","v":"科幻"},{"n":"恐怖","v":"恐怖"},{"n":"战争","v":"战争"},{"n":"剧情","v":"剧情"}]},{"key":"area","name":"地区","value":[{"n":"全部","v":""},{"n":"大陆","v":"大陆"},{"n":"美国","v":"美国"},{"n":"香港","v":"香港"}]}],
+    "4":[{"key":"cateid","name":"类型","value":[{"n":"全部","v":""},{"n":"动作","v":"动作"},{"n":"喜剧","v":"喜剧"},{"n":"爱情","v":"爱情"},{"n":"科幻","v":"科幻"},{"n":"恐怖","v":"恐怖"},{"n":"战争","v":"战争"},{"n":"剧情","v":"剧情"}]},{"key":"area","name":"地区","value":[{"n":"全部","v":""},{"n":"大陆","v":"大陆"},{"n":"美国","v":"美国"},{"n":"香港","v":"香港"}]}]
+    },
+  class_parse: '.myui-header__menu li;a&&Text;a&&href;/(\\d+).html',
+  play_parse: true,
+  lazy: '',
+  limit: 6,
+  推荐: 'ul.myui-vodlist.clearfix;li;a&&title;a&&data-original;.pic-text&&Text;a&&href',
+  double: true,
+  一级: '.myui-vodlist li;a&&title;a&&data-original;.pic-text&&Text;a&&href',
+  二级: {
+    title: '.myui-content__detail .title&&Text;.myui-content__detail .data&&a:eq(1)&&Text',
+    img: '.myui-content__thumb .lazyload&&data-original',
+    desc: '.myui-content__detail p:eq(4)&&Text;.data&&a:eq(3)&&Text;.data&&a:eq(2)&&Text;.myui-content__detail p:eq(2)&&Text;.myui-content__detail p:eq(3)&&Text',
+    content: '.myui-content__detail p:eq(-2)&&Text',
+    tabs: '.nav-tabs:eq(0) li',
+    lists: '.myui-content__list:eq(#id) li',
+  },
+  搜索: '#searchList li;a&&title;.lazyload&&data-original;.pic-text.text-right&&Text;a&&href;.text-muted:eq(-1)&&Text',
+}
